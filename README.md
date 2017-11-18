@@ -1,2 +1,2 @@
-# sportsball
-The definitive source of stats/analytics for sports(ball).
+# sportsballs
+The definitive source of stats/analytics for sports(balls).
