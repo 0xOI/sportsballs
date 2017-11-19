@@ -46,9 +46,12 @@ func get_page_hrefs(page_url string) (page_hrefs []string) {
 }
 
 // get team record for entire season
-func get_team_record(page_url string) (team_record string) {
+func get_team_record(team string, year string) (team_record string) {
+  team_url := fmt.Sprintf("%s/teams/%s/%s.htm", base_url, team, year)
+  fmt.Println("Team URL: " + team_url)
+
   // request and parse the front page
-  resp, err := http.Get(page_url)
+  resp, err := http.Get(team_url)
   if err != nil {
     panic(err)
   }
@@ -74,13 +77,5 @@ func main() {
   team := os.Args[1]
   year := os.Args[2]
 
-  team_url := fmt.Sprintf("%s/teams/%s/%s.htm", base_url, team, year)
-  fmt.Println("Team URL: " + team_url)
-
-  hrefs := get_page_hrefs(team_url)
-  for _, h := range hrefs {
-	  fmt.Println(h)
-  }
-  record := get_team_record(team_url)
-  fmt.Println("Team Record: " + record)
+  fmt.Println("Team Record: " + get_team_record(team, year))
 }
