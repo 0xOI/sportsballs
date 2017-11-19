@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"golang.org/x/net/html"
-	// "golang.org/x/net/html/atom"
 	"github.com/yhat/scrape"
 	"net/http"
 	"os"
